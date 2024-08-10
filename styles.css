@@ -9,14 +9,16 @@ body {
 
 header {
     background-color: #ff7d27; /* Elevation Orange */
+    display: flex;
+    flex-direction: column;
     color: white;
     text-align: center;
     padding: 1rem;
     position: relative;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    line-height: .75;
-    height: 100px
+    line-height: .5rem;
+    height: 7rem;
 }
 
 header h1 {
@@ -32,7 +34,7 @@ main {
     text-align: center;
 }
 
-/* This is used for the /project page where we have some checkboxes.
+/* This is used for the /truck page where we have some checkboxes.
 This ensures that if someone checks a box it strikes through the whole thing */
 input[type="checkbox"]:checked + span {
     text-decoration: line-through;
