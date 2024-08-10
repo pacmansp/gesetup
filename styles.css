@@ -32,6 +32,12 @@ main {
     text-align: center;
 }
 
+/* This is used for the /project page where we have some checkboxes.
+This ensures that if someone checks a box it strikes through the whole thing */
+input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+}
+
 .section {
     padding: 20px; /* Add padding inside the section */
 }
