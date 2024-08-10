@@ -1,6 +1,21 @@
+@font-face {
+    font-family: 'Nexa';
+    src: url('fonts/Nexa Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('fonts/Nexa Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-    font-family: Open Sans, Helvetica, Arial, sans-serif;
+    font-family: 'Nexa', 'Open Sans', sans-serif;
     line-height: 1.2;
+    letter-spacing: .025rem;
     margin: 0;
     padding: 0;
     color: #333;
