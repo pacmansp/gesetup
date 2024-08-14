@@ -131,7 +131,7 @@ main {
 }
 
 /* Adjustments for mobile */
-@media (max-width: 600px) {
+@media (max-width: 570px) {
     header {
         padding: .5rem;
         line-height: 1;
