@@ -15,17 +15,13 @@
             <div class="images">
                 <img src="New-GE-Setup.png" alt="Pipe & Drape Diagram">
                 <p class="name">PIPE & DRAPE DIAGRAM</p>
-                <p class="description">A diagram showing all the pipe and drape we set up. Use the tabs below to view example images of each area.</p>
+                <p class="description">A diagram showing all the pipe and drape we set up. Expand the sections below to see example images of each area.</p>
             </div>
         </section>
 
         <section class="section">
-            <div class="tabs">
-                <button class="tab-button active" data-tab="courtyard">Courtyard</button>
-                <button class="tab-button" data-tab="hallway">Hallways</button>
-                <button class="tab-button" data-tab="gym">Gym</button>
-            </div>
-            <div class="tab-content active" id="courtyard">
+            <h2 class="accordion">Courtyard Images</h2>
+            <div class="accordion-content">
                 <div class="images">
                     <img src="courtyard.png" alt="Courtyard Entrance">
                     <p class="name">COURTYARD ENTRANCE</p>
@@ -52,7 +48,11 @@
                     <p class="description">The banner, A-Frame, and tension banner that goes outside the front door</p>
                 </div>
             </div>
-            <div class="tab-content" id="hallway">
+        </section>
+
+        <section class="section">
+            <h2 class="accordion">Hallway Images</h2>
+            <div class="accordion-content">
                 <div class="images">
                     <img src="banner_gray-elevation-raleigh.png" alt="Gray Banner">
                     <p class="name">GRAY ^RAL</p>
@@ -74,7 +74,11 @@
                     <p class="description">An example of how the hallway will look with the new drape layout</p>
                 </div>
             </div>
-            <div class="tab-content" id="gym">
+        </section>
+
+        <section class="section">
+            <h2 class="accordion">Gym Images</h2>
+            <div class="accordion-content">
                 <div class="images">
                     <img src="foh-drape.png" alt="Front of House Drape">
                     <p class="name">FRONT OF HOUSE DRAPE</p>
@@ -91,17 +95,18 @@
     <footer>
     </footer>
     <script>
-        document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                const tabId = button.dataset.tab;
-                document.querySelectorAll('.tab-content').forEach(content => {
-                    content.id === tabId ? content.classList.add('active') : content.classList.remove('active');
-                });
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
             });
-        });
+        }
     </script>
 </body>
 </html>
