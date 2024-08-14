@@ -58,7 +58,7 @@ main {
     padding: 1rem;
     margin: 1rem auto;
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: 15px;
 }
 
 .tabs {
@@ -76,10 +76,12 @@ main {
     flex: 1;
     text-align: center;
     font-size: 1rem;
+    margin: 0 5px;
+    border-radius: 10px;
 }
 
 .tab-button.active {
-    background-color: #e6681c;
+    background-color: #c94a00;
     font-weight: 900;
 }
 
@@ -93,7 +95,7 @@ main {
 
 .images {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .images:last-of-type{
@@ -111,16 +113,17 @@ main {
     font-size: 1rem;
     font-weight: 500;
     margin-top: .25rem;
+    margin-bottom: -0.1rem;
     color: #333;
 }
 
 .images .description {
     font-size: .9em; /* Normal font size for the description */
-    margin-top: .15rem;
+    margin-top: .5rem;
     color: #666;
 }
 
-/* Responsive adjustments for mobile */
+/* Adjustments for mobile */
 @media (max-width: 600px) {
     header {
         padding: .5rem;
@@ -135,5 +138,9 @@ main {
     .images img {
         max-width: 100%; /* Ensure the image fits within the container */
         margin-bottom: 5px; /* Reduce space below the image */
+    }
+
+    .images:last-of-type{
+        padding-bottom: 0rem;
     }
 }
