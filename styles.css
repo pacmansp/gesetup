@@ -101,9 +101,13 @@ main {
 }
 
 .images {
-    text-align: center;
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+    flex-direction: column; /* Ensure the images stack in a column */
     margin-bottom: 2.5rem;
 }
+
 
 .images:last-of-type{
     margin-bottom: 0rem;
@@ -114,12 +118,14 @@ main {
     border-radius: 5px; /* Slightly round the corners of the image */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow to the image */
     margin-bottom: .75rem; /* Add some space below the image */
+    max-width: 100%; /* forces the images to shrink past their 800x450 resolution once the window is smaller than that */
+    height: auto;
 }
 
 .images .name {
     font-size: 1rem;
     font-weight: 500;
-    margin-top: .25rem;
+    margin-top: .5rem;
     margin-bottom: -0.1rem;
     color: #333;
 }
