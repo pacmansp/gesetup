@@ -10,15 +10,19 @@
             position: relative;
             display: inline-block;
             max-width: 100%;
+            overflow: hidden;
         }
-        .blueprint img {
+        .blueprint {
             width: 100%;
+            height: auto;
             max-width: 800px;
+            display: block;
+            transform-origin: top left;
         }
         .icon {
             position: absolute;
-            width: 28px;
-            height: 28px;
+            width: 3vw;
+            height: 3vw;
             background-color: #ff7d27;
             border-radius: 50%;
             cursor: pointer;
@@ -61,12 +65,8 @@
         }
         @media (max-width: 600px) {
             .icon {
-                width: 32px;
-                height: 32px;
-            }
-            .modal-content {
-                max-width: 95%;
-                padding: 10px;
+                width: 5vw;
+                height: 5vw;
             }
         }
     </style>
@@ -78,8 +78,8 @@
     <main>
         <div class="blueprint-container">
             <img src="/images/blueprint.png" alt="Blueprint" class="blueprint">
-            <div class="icon" style="top: 5%; left: 92%;" onclick="openModal('/images/entrance.JPG')"></div>
-            <div class="icon" style="top: 71%; left: 91%;" onclick="openModal('/images/connections-inside.JPGu')"></div>
+            <div class="icon" style="top: 5%; left: 92%;" onclick="openModal('/images/entrance.jpg')"></div>
+            <div class="icon" style="top: 71%; left: 91%;" onclick="openModal('/images/connections-inside.jpg')"></div>
         </div>
     </main>
     <div id="imageModal" class="modal" onclick="closeModal()">
