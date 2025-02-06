@@ -21,13 +21,19 @@
         }
         .icon {
             position: absolute;
-            width: 3vw;
-            height: 3vw;
-            background-color: #ff7d27;
-            border-radius: 50%;
+            width: 2vw;
+            height: 2vw;
+            background-color: transparent;
             cursor: pointer;
             transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            box-shadow: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon img {
+            width: 100%;
+            height: auto;
         }
         .modal {
             display: none;
@@ -65,8 +71,8 @@
         }
         @media (max-width: 600px) {
             .icon {
-                width: 5vw;
-                height: 5vw;
+                width: 3vw;
+                height: 3vw;
             }
         }
     </style>
@@ -78,8 +84,12 @@
     <main>
         <div class="blueprint-container">
             <img src="/images/blueprint.png" alt="Blueprint" class="blueprint">
-            <div class="icon" style="top: 5%; left: 92%;" onclick="openModal('/images/entrance.jpg')"></div>
-            <div class="icon" style="top: 71%; left: 91%;" onclick="openModal('/images/connections-inside.jpg')"></div>
+            <div class="icon" style="top: 5%; left: 92.5%;" onclick="openModal('/images/entrance.JPG')">
+                <img src="/images/camera-icon.png" alt="Camera Icon">
+            </div>
+            <div class="icon" style="top: 72%; left: 91%;" onclick="openModal('/images/connections-inside.JPG')">
+                <img src="/images/camera-icon.png" alt="Camera Icon">
+            </div>
         </div>
     </main>
     <div id="imageModal" class="modal" onclick="closeModal()">
