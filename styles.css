@@ -42,16 +42,22 @@ header h1 {
 }
 
 /* Blueprint Container */
+/* Mobile: full width; Desktop: constrain width & center */
 .blueprint-container {
   position: relative;
-  max-width: 100%;
   margin: 0 auto;
 }
-
 .blueprint {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* For desktop screens, constrain the blueprint container */
+@media (min-width: 1024px) {
+  .blueprint-container {
+    max-width: 800px;  /* Adjust as needed */
+  }
 }
 
 /* Camera Icon Styling */
@@ -59,8 +65,7 @@ header h1 {
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  /* Extra padding for easier tapping on mobile */
-  padding: 5px;
+  padding: 5px; /* Extra padding for easier tapping on mobile */
 }
 
 .camera-icon img {
@@ -102,6 +107,16 @@ header h1 {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* For desktop screens, reduce the lightbox image size so that scrolling isn’t required */
+@media (min-width: 1024px) {
+  .lightbox-content {
+    max-height: 80vh; /* Allow a little breathing room */
+  }
+  .lightbox-content img {
+    max-height: 60vh; /* Limits image height; width auto-adjusts due to aspect ratio (4:3) */
+  }
 }
 
 /* Lightbox Header and Paragraph */
