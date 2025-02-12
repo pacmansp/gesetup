@@ -1,121 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GE Setup</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .blueprint-container {
-            position: relative;
-            display: inline-block;
-            max-width: 100%;
-            overflow: hidden;
-        }
-        .blueprint {
-            width: 100%;
-            height: auto;
-            max-width: 800px;
-            display: block;
-            transform-origin: top left;
-        }
-        .icon {
-            position: absolute;
-            width: 1vw;
-            height: 1vw;
-            background-color: transparent;
-            cursor: pointer;
-            transform: translate(-50%, -50%);
-            box-shadow: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .icon img {
-            width: 100%;
-            height: auto;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
-        }
-        .modal-content {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            position: relative;
-            max-width: 90%;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .modal img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            cursor: pointer;
-            font-size: 28px;
-            color: #ff7d27;
-        }
-        @media (max-width: 600px) {
-            .icon {
-                width: 3vw;
-                height: 3vw;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GE Setup Guide</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"/>
 </head>
 <body>
-    <header>
-        <h1>GE Setup</h1>
-    </header>
-    <main>
-        <div class="blueprint-container">
-            <img src="/images/blueprint.png" alt="Blueprint" class="blueprint">
-            <div class="icon" style="top: 5%; left: 92.5%;" onclick="openModal('/images/entrance.JPG')">
-                <img src="/images/camera-icon.png" alt="Camera Icon">
-            </div>
-            <div class="icon" style="top: 72%; left: 91%;" onclick="openModal('/images/connections-inside.JPG')">
-                <img src="/images/camera-icon.png" alt="Camera Icon">
-            </div>
-            <div class="icon" style="top: 68%; left: 41%;" onclick="openModal('/images/outside-aud-2.JPG')">
-                <img src="/images/camera-icon.png" alt="Camera Icon">
-            </div>
-            <div class="icon" style="top: 84%; left: 42%;" onclick="openModal('/images/outside-aud-1.JPG')">
-                <img src="/images/camera-icon.png" alt="Camera Icon">
-            </div>
-            <div class="icon" style="top: 72.5%; left: 49%;" onclick="openModal('/images/lobby.JPG')">
-                <img src="/images/camera-icon.png" alt="Camera Icon">
-            </div>
-            </div>
-        </div>
-    </main>
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="Setup Example">
-        </div>
+  <header>
+    <h1>GE Setup Guide</h1>
+  </header>
+
+  <section class="description">
+    <h2>Weekly Setup Instructions</h2>
+    <p>
+      Each week, our team transforms the space to prepare for services and events. This guide provides a visual reference to ensure everything is set up correctly. Click on the camera icons to see images of key setup areas. <br><br><b>Note</b>: The Dream Week signage pictured below will not be included in the normal set up.
+    </p>
+  </section>
+
+  <!-- Blueprint Container -->
+  <section class="blueprint-container">
+    <img src="images/blueprint.png" alt="Blueprint" class="blueprint" />
+
+    <!-- Camera Icons and Lightbox Images. -->
+    <a href="#" class="camera-icon" data-image="images/aud-back-stageleft.png" data-header="Back of Auditorium" data-text="Pipe and drape for the back of the auditorium, stage left." style="top: 77%; left: 36%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+    <a href="#" class="camera-icon" data-image="images/aud-back-stageright.png" data-header="Back of Auditorium" data-text="Pipe and drape for the back of the auditorium, stage right." style="top: 86%; left: 36%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+    <a href="#" class="camera-icon" data-image="images/connections-inside.png" data-header="Connections" data-text="The indoor connections area." style="top: 72%; left: 91%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+    <a href="#" class="camera-icon" data-image="images/ehq-hall.png" data-header="eHQ Hallway" data-text="Drape off the hallway leading to eHQ." style="top: 25%; left: 89%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    <a href="#" class="camera-icon" data-image="images/entrance.png" data-header="Entrance" data-text="Main entrance when guests first walk into the school." style="top: 5%; left: 92%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+    <a href="#" class="camera-icon" data-image="images/lobby.png" data-header="Lobby" data-text="Lobby area outside eKidz and the auditorium entrance." style="top: 72.5%; left: 49%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+    <a href="#" class="camera-icon" data-image="images/outside-aud-1.png" data-header="Outside Auditorium" data-text="Three piece banner blocking the doors outside the auditorium" style="top: 84.7%; left: 41.5%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+    <a href="#" class="camera-icon" data-image="images/outside-aud-2.png" data-header="Outside Auditorium" data-text="Banner and table at the entrance of the auditorium lobby." style="top: 68.5%; left: 41%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+    <a href="#" class="camera-icon" data-image="images/second-hallway.png" data-header="Hallway" data-text="The hallway right past the indoor connections area." style="top: 69%; left: 81%;">
+      <img src="images/camera-icon.png" alt="Camera Icon" />
+    </a>
+  </section>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <!-- The image that will be dynamically set -->
+      <img src="" alt="Lightbox Image" id="lightbox-image" />
+      <!-- Header and paragraph that will be updated per icon -->
+      <h3 id="lightbox-header">Placeholder Header</h3>
+      <p id="lightbox-paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+      </p>
     </div>
-    <script>
-        function openModal(imageSrc) {
-            document.getElementById('modalImage').src = imageSrc;
-            document.getElementById('imageModal').style.display = 'flex';
-        }
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-    </script>
+  </div>
+
+  <!-- JavaScript for Lightbox Functionality -->
+  <script>
+    // Select the lightbox elements
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxHeader = document.getElementById('lightbox-header');
+    const lightboxParagraph = document.getElementById('lightbox-paragraph');
+    const cameraIcons = document.querySelectorAll('.camera-icon');
+
+    // Open the lightbox when a camera icon is clicked
+    cameraIcons.forEach(icon => {
+      icon.addEventListener('click', function (e) {
+        e.preventDefault();
+        const imgSrc = this.getAttribute('data-image');
+        const headerText = this.getAttribute('data-header');
+        const paragraphText = this.getAttribute('data-text');
+        
+        lightboxImage.src = imgSrc;
+        lightboxHeader.textContent = headerText;
+        lightboxParagraph.textContent = paragraphText;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    // Close the lightbox when clicking outside the lightbox content
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
