@@ -1,159 +1,161 @@
-@font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('fonts/Poppins-Bold.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-}
-
+/* Body Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    line-height: 1.2;
-    letter-spacing: .025rem;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+  background-color: #222; /* Dark gray background */
+  color: #fff;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-button, .tab, table, th, td {
-    font-family: inherit; /* Inherit the font-family from the body */
-}
-
+/* Header Styles */
 header {
-    background-color: #ff7d27; /* Elevation Orange */
-    display: flex;
-    flex-direction: column;
-    color: white; 
-    text-align: center;
-    padding: 1rem;
+  background-color: #ff671f; /* Church brand color */
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 header h1 {
-    margin: .75rem;
-    font-weight: 500;
+  font-size: 2.5em;
+  color: #fff;
 }
 
-main {
-    padding: 1rem;
-    text-align: center;
+/* Description Section */
+.description {
+  margin-bottom: 30px;
 }
 
-.section {
-    background-color: #EDEDED;
-    padding: .75rem;
-    margin: 1rem auto;
-    max-width: 100%;
-    border-radius: 15px;
+.description h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
 }
 
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+.description p {
+  font-size: 1em;
 }
 
-.tab-button {
-    background-color: #ff7d27;
-    color: #fff;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    flex: 1;
-    text-align: center;
-    font-size: 1rem;
-    margin: 0 5px;
-    border-radius: 15px;
+/* Blueprint Container */
+/* Mobile: full width; Desktop: constrain width & center */
+.blueprint-container {
+  position: relative;
+  margin: 0 auto;
+}
+.blueprint {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.tab-button.active {
-    background-color: #c94a00;
-    font-weight: 700;
+/* For desktop screens, constrain the blueprint container */
+@media (min-width: 1024px) {
+  .blueprint-container {
+    max-width: 800px;  /* Adjust as needed */
+  }
 }
 
-.tab-content {
-    display: none;
+/* Camera Icon Styling */
+.camera-icon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  padding: 5px; /* Extra padding for easier tapping on mobile */
 }
 
-.tab-content.active {
-    display: block;
+.camera-icon img {
+  width: 20px; /* Reduced size */
+  height: 20px;
 }
 
-.images {
-    display: flex;
-    justify-content: center; /* Horizontally center the image */
-    align-items: center; /* Vertically center the image */
-    flex-direction: column; /* Ensure the images stack in a column */
-    margin-bottom: 1.5rem;
+/* Lightbox Overlay */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-
-.images:last-of-type{
-    margin-bottom: 0rem;
+/* Lightbox Content */
+.lightbox-content {
+  position: relative;
+  background-color: #333; /* Dark background for lightbox content */
+  color: #fff; /* White text */
+  padding: 20px;
+  border: 2px solid #ff671f; /* Orange border to stay on brand */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
 }
 
-.images img {
-    border: 4px solid #fff; /* Add a border around the image */
-    border-radius: 5px; /* Slightly round the corners of the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow to the image */
-    margin-bottom: .75rem; /* Add some space below the image */
-    max-width: 100%; /* forces the images to shrink past their 800x450 resolution once the window is smaller than that */
-    height: auto;
+.lightbox-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.images .name {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: .5rem;
-    margin-bottom: -0.1rem;
-    color: #333;
+/* For desktop screens, reduce the lightbox image size so that scrolling isn’t required */
+@media (min-width: 1024px) {
+  .lightbox-content {
+    max-height: 80vh; /* Allow a little breathing room */
+  }
+  .lightbox-content img {
+    max-height: 60vh; /* Limits image height; width auto-adjusts due to aspect ratio (4:3) */
+  }
 }
 
-.images .description {
-    font-size: .9em; /* Normal font size for the description */
-    margin-top: .5rem;
-    color: #666;
+/* Lightbox Header and Paragraph */
+.lightbox-content h3 {
+  font-size: 1.5em; /* Slightly larger than paragraph */
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-/* Adjustments for mobile */
-@media (max-width: 570px) {
-    header {
-        padding: .5rem;
-        line-height: 1;
-    }
+.lightbox-content p {
+  font-size: 1em;
+}
 
-    .tab-button {
-        font-size: .9rem;
-        padding: .75rem;
-    }
+/* Responsive Styles */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+  .description h2 {
+    font-size: 1.5em;
+  }
+  .camera-icon img {
+    width: 15px;
+    height: 15px;
+  }
+  .lightbox-content {
+    padding: 15px;
+  }
+}
 
-    .images img {
-        max-width: 100%; /* Ensure the image fits within the container */
-        margin-bottom: 5px; /* Reduce space below the image */
-    }
-
-    .images:last-of-type{
-        padding-bottom: 0rem;
-    }
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  .description h2 {
+    font-size: 1.3em;
+  }
+  .camera-icon img {
+    width: 12px;
+    height: 12px;
+  }
 }
