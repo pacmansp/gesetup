@@ -5,23 +5,28 @@
   box-sizing: border-box;
 }
 
+/* Container for centering content on wider screens */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 /* Body Styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #222; /* Dark gray background */
+  background-color: #222;
   color: #fff;
   line-height: 1.6;
   padding: 20px;
 }
 
-/* Header Styles */
+/* Header Styles (full width) */
 header {
-  background-color: #ff671f; /* Church brand color */
+  background-color: #ff671f;
   padding: 20px;
   text-align: center;
-  margin-bottom: 20px;
 }
-
 header h1 {
   font-size: 2.5em;
   color: #fff;
@@ -29,20 +34,21 @@ header h1 {
 
 /* Description Section */
 .description {
+  margin-top: 25px;
   margin-bottom: 30px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .description h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
 }
-
 .description p {
   font-size: 1em;
 }
 
 /* Blueprint Container */
-/* Mobile: full width; Desktop: constrain width & center */
 .blueprint-container {
   position: relative;
   margin: 0 auto;
@@ -52,11 +58,9 @@ header h1 {
   height: auto;
   display: block;
 }
-
-/* For desktop screens, constrain the blueprint container */
 @media (min-width: 1024px) {
   .blueprint-container {
-    max-width: 800px;  /* Adjust as needed */
+    max-width: 1000px;
   }
 }
 
@@ -65,11 +69,10 @@ header h1 {
   position: absolute;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  padding: 5px; /* Extra padding for easier tapping on mobile */
+  padding: 5px;
 }
-
 .camera-icon img {
-  width: 20px; /* Reduced size */
+  width: 20px;
   height: 20px;
 }
 
@@ -81,7 +84,7 @@ header h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  display: none; /* Hidden by default */
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -90,47 +93,34 @@ header h1 {
 /* Lightbox Content */
 .lightbox-content {
   position: relative;
-  background-color: #333; /* Dark background for lightbox content */
-  color: #fff; /* White text */
+  background-color: #333;
+  color: #fff;
   padding: 20px;
-  border: 2px solid #ff671f; /* Orange border to stay on brand */
+  border: 2px solid #ff671f;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   max-width: 90%;
   max-height: 90%;
   overflow: auto;
 }
-
 .lightbox-content img {
   display: block;
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
 }
-
-/* For desktop screens, reduce the lightbox image size so that scrolling isn’t required */
-@media (min-width: 1024px) {
-  .lightbox-content {
-    max-height: 80vh; /* Allow a little breathing room */
-  }
-  .lightbox-content img {
-    max-height: 60vh; /* Limits image height; width auto-adjusts due to aspect ratio (4:3) */
-  }
-}
-
-/* Lightbox Header and Paragraph */
 .lightbox-content h3 {
-  font-size: 1.5em; /* Slightly larger than paragraph */
+  font-size: 1.5em;
   font-weight: 600;
   margin-bottom: 10px;
 }
-
 .lightbox-content p {
   font-size: 1em;
 }
 
-/* Responsive Styles */
+/* Responsive Styles for Lightbox and Text */
 @media (max-width: 768px) {
   header h1 {
     font-size: 2em;
@@ -146,7 +136,6 @@ header h1 {
     padding: 15px;
   }
 }
-
 @media (max-width: 480px) {
   header h1 {
     font-size: 1.8em;
@@ -158,4 +147,61 @@ header h1 {
     width: 12px;
     height: 12px;
   }
+}
+
+/* ------------------- */
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Card Styles */
+.card {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: #333;
+  border: 1px solid #ff671f;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card-header {
+  padding: 20px;
+  background-color: #444;
+  border-bottom: 1px solid #ff671f;
+}
+
+/* Card Content (collapsed state) */
+.card-content {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+/* Card Content (expanded state) */
+.card.active .card-content {
+  max-height: 1000px;
+  padding: 20px;
+}
+
+/* Card Content Text and Image */
+.card-content p {
+  margin-bottom: 10px;
+}
+.card-content img {
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin-bottom: 10px;
 }
