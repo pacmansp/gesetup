@@ -120,6 +120,53 @@ header h1 {
   font-size: 1em;
 }
 
+/* Lightbox Navigation Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;      /* fixed width */
+  height: 40px;     /* fixed height */
+  line-height: 40px; /* centers the text vertically */
+  text-align: center;
+  font-size: 1.5em;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;  /* ensures a perfect circle */
+  user-select: none;
+  z-index: 1010;
+  display: none;
+}
+.arrow.left {
+  left: 10px;
+}
+.arrow.right {
+  right: 10px;
+}
+
+/* Lightbox Indicator */
+.indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 1010;
+  display: none;
+}
+.indicator .dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.indicator .dot.active {
+  background: #ff671f;
+}
+
 /* Responsive Styles for Lightbox and Text */
 @media (max-width: 768px) {
   header h1 {

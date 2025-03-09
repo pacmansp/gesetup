@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GE Setup Guide</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.3" />
+  <link rel="stylesheet" href="styles.css?v=1.0.5" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <!-- Header spans full width -->
@@ -18,7 +19,7 @@
     <section class="description">
       <h2>Weekly Setup Instructions</h2>
       <p>
-        Each week, our team transforms the space to prepare for services and events. This guide provides a visual reference to ensure everything is set up correctly. Click on the camera icons to see images of key setup areas. <br><br><b>Note</b>: The Dream Week signage pictured below will not be included in the normal set up.
+        Each week, our team transforms the space to prepare for services and events. This guide provides a visual reference to ensure everything is set up correctly. <br><br><i class="fa-solid fa-camera"></i> Click on the camera icons on the blueprint to see images of key setup areas.
       </p>
     </section>
 
@@ -27,10 +28,14 @@
       <img src="images/blueprint.png" alt="Blueprint" class="blueprint" />
 
       <!-- Camera Icons and Lightbox Images -->
+      <!-- For an icon with a single image, use data-image, for multiple use data-images and add comma between pic names -->
       <a href="#" class="camera-icon" data-image="images/aud-back-stageleft.png" data-header="Back of Auditorium" data-text="Pipe and drape for the back of the auditorium, stage left." style="top: 77%; left: 36%;">
         <img src="images/camera-icon.png" alt="Camera Icon" />
       </a>
-      <a href="#" class="camera-icon" data-image="images/aud-back-stageright.png" data-header="Back of Auditorium" data-text="Pipe and drape for the back of the auditorium, stage right." style="top: 86%; left: 36%;">
+       <a href="#" class="camera-icon" data-image="images/aud-back-stageright.png" data-header="Back of Auditorium" data-text="Pipe and drape for the back of the auditorium, stage right." style="top: 86%; left: 36%;">
+        <img src="images/camera-icon.png" alt="Camera Icon" />
+      </a>
+      <a href="#" class="camera-icon" data-image="images/outside-aud-greeters.png" data-header="Outside Auditorium" data-text="Banner and table at the entrance of the auditorium lobby." style="top: 68.5%; left: 41%;">
         <img src="images/camera-icon.png" alt="Camera Icon" />
       </a>
       <a href="#" class="camera-icon" data-image="images/indoor-connections.png" data-header="Connections" data-text="The indoor connections area." style="top: 72%; left: 91%;">
@@ -47,10 +52,13 @@
       <a href="#" class="camera-icon" data-image="images/outside-aud-1.png" data-header="Outside Auditorium" data-text="Three piece banner blocking the doors outside the auditorium" style="top: 84.7%; left: 41.5%;">
         <img src="images/camera-icon.png" alt="Camera Icon" />
       </a>
-      <a href="#" class="camera-icon" data-image="images/outside-aud-greeters.png" data-header="Outside Auditorium" data-text="Tension banner and table at the entrance of the auditorium lobby." style="top: 68.5%; left: 41%;">
+      <a href="#" class="camera-icon" data-image="images/bathroom-hallway.png" data-header="Hallway" data-text="The hallway right past the indoor connections area." style="top: 69%; left: 81%;">
         <img src="images/camera-icon.png" alt="Camera Icon" />
       </a>
-      <a href="#" class="camera-icon" data-image="images/second-hallway.png" data-header="Hallway" data-text="The hallway right past the indoor connections area." style="top: 69%; left: 81%;">
+      <a href="#" class="camera-icon" data-image="images/stage-right-drape.png" data-header="Stage Right Drape" data-text="The drape we add to the stairs, stage right." style="top: 90.5%; left: 19%;">
+        <img src="images/camera-icon.png" alt="Camera Icon" />
+      </a>
+      <a href="#" class="camera-icon" data-images="images/stage-left-chairs.png, images/center-stage-chairs.png, images/stage-right-chairs.png" data-header="Extra Chairs" data-text="The extra chairs we add in the auditorium. Click thru for additional images." style="top: 81%; left: 20%;">
         <img src="images/camera-icon.png" alt="Camera Icon" />
       </a>
     </section>
@@ -64,12 +72,12 @@
         <div class="card-content">
           <p>
             - eKidz Lobby, behind check in tables<br>
-            - Room 112<br>
-            - Room 119<br>
             - Room 116<br>
-            - Room 122<br>
+            - Room 112<br>
+            - Behind banner near blocked men's bathroom<br>
             - Behind Connections drape<br>
-            - Behind banner near men's bathroom<br>
+            - Room 119<br>
+            - Room 122<br>
             - eHQ hallway
           </p>
         </div>
@@ -79,11 +87,10 @@
           <h3>Connections Outdoor Tent</h3>
         </div>
         <div class="card-content">
-          <p>A picture of the outdoor tent connections sets up<br><b>Note:</b> We do not use the banner behind the tent anymore. A new picture will be taken on March 9.</p>
-          <img src="images/connections-outside.png" alt="Connections Outdoor Area">
+          <p>A picture of the outdoor tent connections set up</p>
+          <img src="images/outdoor-connections.png" alt="Connections Outdoor Area">
         </div>
       </div>
-
       <div class="card">
         <div class="card-header">
           <h3>e101 Lobby</h3>
@@ -96,10 +103,13 @@
     </section>
   </div> <!-- End .container -->
 
-  <!-- Lightbox Overlay -->
+  <!-- Lightbox Overlay with Navigation -->
   <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
+      <div class="arrow left" id="lightbox-left">&#10094;</div>
       <img src="" alt="Lightbox Image" id="lightbox-image" />
+      <div class="arrow right" id="lightbox-right">&#10095;</div>
+      <div class="indicator" id="lightbox-indicator"></div>
       <h3 id="lightbox-header">Placeholder Header</h3>
       <p id="lightbox-paragraph">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo.
@@ -107,32 +117,115 @@
     </div>
   </div>
 
-  <!-- JavaScript for Lightbox and Card Functionality -->
+  <!-- JavaScript for Lightbox Gallery -->
   <script>
-    // Lightbox functionality
+    // Global variables for multi-image support
+    let currentGallery = [];
+    let currentIndex = 0;
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxHeader = document.getElementById('lightbox-header');
     const lightboxParagraph = document.getElementById('lightbox-paragraph');
+    const leftArrow = document.getElementById('lightbox-left');
+    const rightArrow = document.getElementById('lightbox-right');
+    const indicatorContainer = document.getElementById('lightbox-indicator');
     const cameraIcons = document.querySelectorAll('.camera-icon');
+
+    function updateNavigationControls() {
+      // If multiple images, show arrows and indicator
+      if (currentGallery.length > 1) {
+        leftArrow.style.display = currentIndex > 0 ? 'block' : 'none';
+        rightArrow.style.display = currentIndex < currentGallery.length - 1 ? 'block' : 'none';
+        // Build indicator dots
+        indicatorContainer.innerHTML = '';
+        for (let i = 0; i < currentGallery.length; i++) {
+          const dot = document.createElement('div');
+          dot.classList.add('dot');
+          if (i === currentIndex) {
+            dot.classList.add('active');
+          }
+          // Allow clicking on dots to jump to that image
+          dot.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentIndex = i;
+            updateLightboxImage();
+          });
+          indicatorContainer.appendChild(dot);
+        }
+        indicatorContainer.style.display = 'flex';
+      } else {
+        leftArrow.style.display = 'none';
+        rightArrow.style.display = 'none';
+        indicatorContainer.style.display = 'none';
+      }
+    }
+
+    function updateLightboxImage() {
+      lightboxImage.src = currentGallery[currentIndex];
+      updateNavigationControls();
+    }
 
     cameraIcons.forEach(icon => {
       icon.addEventListener('click', function (e) {
         e.preventDefault();
-        const imgSrc = this.getAttribute('data-image');
-        const headerText = this.getAttribute('data-header');
-        const paragraphText = this.getAttribute('data-text');
-        
-        lightboxImage.src = imgSrc;
-        lightboxHeader.textContent = headerText;
-        lightboxParagraph.textContent = paragraphText;
+        // If the element has a data-images attribute, use it for the gallery.
+        const imagesData = this.getAttribute('data-images');
+        if (imagesData) {
+          currentGallery = imagesData.split(',').map(img => img.trim());
+        } else {
+          currentGallery = [ this.getAttribute('data-image') ];
+        }
+        currentIndex = 0;
+        updateLightboxImage();
+        lightboxHeader.textContent = this.getAttribute('data-header');
+        lightboxParagraph.textContent = this.getAttribute('data-text');
         lightbox.style.display = 'flex';
       });
+    });
+
+    leftArrow.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateLightboxImage();
+      }
+    });
+
+    rightArrow.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (currentIndex < currentGallery.length - 1) {
+        currentIndex++;
+        updateLightboxImage();
+      }
     });
 
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) {
         lightbox.style.display = 'none';
+      }
+    });
+
+    // Add keyboard support for arrow keys and Esc when the lightbox is open.
+    document.addEventListener('keydown', function(e) {
+      // Only act if the lightbox is visible
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') {
+          // Navigate left if possible
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateLightboxImage();
+          }
+        } else if (e.key === 'ArrowRight') {
+          // Navigate right if possible
+          if (currentIndex < currentGallery.length - 1) {
+            currentIndex++;
+            updateLightboxImage();
+          }
+        } else if (e.key === 'Escape') {
+          // Close the lightbox
+          lightbox.style.display = 'none';
+        }
       }
     });
 
