@@ -20,7 +20,7 @@ body {
   line-height: 1.6;
   padding: 20px;
   background-color: #222;
-  background-image: url('../images/background.jpg');
+  background-image: url('../images/background-bible-verse.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -31,6 +31,10 @@ header {
   background-color: #ff671f;
   padding: 20px;
   text-align: center;
+  border: 2px dashed #fff;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.4);
+
 }
 header h1 {
   font-size: 2.5em;
@@ -63,7 +67,7 @@ header h1 {
   height: auto;
   display: block;
   border: 3px solid rgba(255, 255, 255, 0.75);
-  border-radius: 1%;
+  border-radius: 12px;
 
 }
 @media (min-width: 1024px) {
@@ -106,19 +110,26 @@ header h1 {
   color: #fff;
   padding: 20px;
   border: 5px solid rgba(255, 255, 255, .75);
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
+  max-height: 90vh; /* limit height of lightbox on desktop */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center; /* <-- this ensures everything is centered horizontally */
+  text-align: center;
 }
+
 .lightbox-content img {
   display: block;
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+  border-radius: 12px;
+  max-height: 70vh;
+  object-fit: contain;
 }
 .lightbox-content h3 {
   font-size: 1.5em;
@@ -127,7 +138,11 @@ header h1 {
 }
 .lightbox-content p {
   font-size: 1em;
+  overflow-y: auto;
+  flex-grow: 1;
+  /*margin-top: 10px;*/
 }
+
 
 /* Lightbox Navigation Arrows */
 .arrow {
@@ -157,13 +172,12 @@ header h1 {
 /* Lightbox Indicator */
 .indicator {
   position: absolute;
-  bottom: 10px;
+  bottom: 16px;  /* Adjust how far up from the image bottom */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 5px;
-  z-index: 1010;
-  display: none;
+  z-index: 10;
 }
 .indicator .dot {
   width: 10px;
@@ -174,6 +188,19 @@ header h1 {
 }
 .indicator .dot.active {
   background: #ff671f;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#lightbox-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Styles for Lightbox and Text */
@@ -221,7 +248,7 @@ header h1 {
   margin: 0 auto;
   background-color: #333;
   border: 3px solid rgba(255, 255, 255, 0.75);
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   cursor: pointer;
@@ -256,7 +283,7 @@ header h1 {
 }
 .card-content img {
   max-width: 100%;
-  border-radius: 4px;
+  border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: block;
   margin-bottom: 10px;

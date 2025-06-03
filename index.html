@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GE Setup Guide</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.7" />
+  <link rel="stylesheet" href="styles.css?v=1.0.8" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
@@ -113,15 +113,17 @@
   <!-- Lightbox Overlay with Navigation -->
   <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
-      <div class="arrow left" id="lightbox-left">&#10094;</div>
-      <img src="" alt="Lightbox Image" id="lightbox-image" />
-      <div class="arrow right" id="lightbox-right">&#10095;</div>
-      <div class="indicator" id="lightbox-indicator"></div>
+      <div class="image-wrapper">
+        <div class="arrow left" id="lightbox-left">&#10094;</div>
+        <img src="" alt="Lightbox Image" id="lightbox-image" />
+        <div class="indicator" id="lightbox-indicator"></div>
+        <div class="arrow right" id="lightbox-right">&#10095;</div>
+      </div>
+
       <h3 id="lightbox-header">Placeholder Header</h3>
-      <p id="lightbox-paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo.
-      </p>
+      <p id="lightbox-paragraph">Your paragraph goes here.</p>
     </div>
+
   </div>
 
   <!-- JavaScript for Lightbox Gallery -->
