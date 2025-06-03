@@ -45,9 +45,11 @@ header h1 {
 .description {
   margin-top: 25px;
   margin-bottom: 30px;
-  max-width: 1000px;
+  text-align: center;
+  padding: 0 10px;
+/*  max-width: 1024px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto;*/
 }
 .description h2 {
   font-size: 1.8em;
