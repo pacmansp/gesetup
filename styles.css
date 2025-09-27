@@ -12,71 +12,114 @@
   padding: 0 20px;
 }
 
-/* Body Styles */
+/* ------------------- */
+/* Body Styles (LIGHT THEME) */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #222;
-  color: #fff;
+  background-color: #f5f5f5; /* Light grey/off-white background */
+  color: #333; /* Dark text color */
   line-height: 1.6;
   padding: 20px;
-  background-color: #222;
-  background-image: url('../images/background-bible-verse.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
 }
 
-/* Header Styles (full width) */
-/*header {
-  background-color: #ff671f;
-  padding: 20px;
-  text-align: center;
-  border: 2px dashed #fff;
-  border-radius: 12px;
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 4px 10px rgba(0,0,0,0.4);
-
+/* ------------------- */
+/* Sticky Navigation Bar */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #1e1e1e; /* Dark, contrasting color for the header */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  padding: 0;
 }
-header h1 {
-  font-size: 2.5em;
-  color: #fff;
-}*/
 
-.ascii-wrapper {
+.sticky-nav .container {
+  padding: 0 20px;
   display: flex;
-  justify-content: center;     /* Center horizontally */
-  padding: 0 10px;              /* Add edge breathing room */
-  overflow-x: auto;             /* Allow scroll if needed */
+  justify-content: flex-start;
 }
 
-.ascii-header {
-  font-family: monospace;
-  white-space: pre;
-  color: #ff671f;
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  padding: 30px 20px;
-  border: 3px solid rgba(255, 255, 255, .75);
-  border-radius: 12px;
-  font-size: 16px;
-  line-height: 1.1;
-  min-width: 100%;
-  max-width: 1024px;
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover, .dropdown-btn:hover {
+  background-color: #ff671f; /* Accent color on hover */
+  color: #fff;
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 15px 20px;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Dropdown Content (Hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1e1e1e;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  z-index: 1;
+  border-top: 3px solid #ff671f; /* Accent color separator */
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
   display: block;
 }
 
+.dropdown-content a:hover {
+  background-color: #ff671f;
+}
+
+/* 1. Desktop Behavior: Show the dropdown menu on hover (CSS-controlled) */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 2. Mobile Behavior: Show the dropdown menu when JS adds this class (JS-controlled) */
+.dropdown.js-active .dropdown-content {
+  display: block !important;
+}
+
+/* ------------------- */
 /* Description Section */
 .description {
   margin-top: 25px;
   margin-bottom: 30px;
   text-align: center;
   padding: 0 10px;
-/*  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;*/
 }
 .description h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
+  color: #1e1e1e;
 }
 .description p {
   font-size: 1em;
@@ -91,9 +134,8 @@ header h1 {
   width: 100%;
   height: auto;
   display: block;
-  border: 3px solid #fff;
+  border: 3px solid #333;
   border-radius: 12px;
-
 }
 @media (min-width: 1024px) {
   .blueprint-container {
@@ -108,6 +150,10 @@ header h1 {
   cursor: pointer;
   padding: 5px;
 }
+/* Style for hiding icons (used for filtering) */
+.camera-icon.hidden {
+    display: none !important;
+}
 .camera-icon img {
   width: 20px;
   height: 20px;
@@ -115,10 +161,54 @@ header h1 {
   padding: 2px;
   background: radial-gradient(circle at 30% 30%, #ff671f, #ffc199);
   box-shadow:
-    inset 0 1px 2px rgba(255,255,255,0.6),
-    0 2px 6px rgba(255,255,255,0.4);
+    inset 0 1px 2px rgba(0,0,0,0.3),
+    0 2px 6px rgba(0,0,0,0.2);
 }
 
+/* ------------------- */
+/* Filter Container */
+.filter-container {
+  max-width: 1024px;
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+}
+.filter-container p {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #333;
+}
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.filter-btn {
+  background-color: #e0e0e0;
+  color: #333;
+  border: 2px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.filter-btn:hover {
+  background-color: #d0d0d0;
+  border-color: #a0a0a0;
+}
+.filter-btn.active {
+  background-color: #ff671f; /* Your accent color */
+  color: #fff;
+  border-color: #cc5317;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.filter-btn.active:hover {
+  background-color: #cc5317;
+}
+
+/* ------------------- */
 /* Lightbox Overlay */
 .lightbox {
   position: fixed;
@@ -133,22 +223,22 @@ header h1 {
   z-index: 1000;
 }
 
-/* Lightbox Content */
+/* Lightbox Content (Semi-light theme overlay) */
 .lightbox-content {
   position: relative;
-  background: rgba(34, 34, 34, 0.35);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
-  color: #fff;
+  color: #333;
   padding: 20px;
-  border: 3px solid rgba(255, 255, 255, .75);
+  border: 3px solid #333;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 90%;
-  max-height: 90vh; /* limit height of lightbox on desktop */
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  align-items: center; /* <-- this ensures everything is centered horizontally */
+  align-items: center;
   text-align: center;
 }
 
@@ -157,7 +247,7 @@ header h1 {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   max-height: 70vh;
   object-fit: contain;
@@ -171,7 +261,6 @@ header h1 {
   font-size: 1em;
   overflow-y: auto;
   flex-grow: 1;
-  /*margin-top: 10px;*/
 }
 
 
@@ -180,15 +269,15 @@ header h1 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;      /* fixed width */
-  height: 40px;     /* fixed height */
-  line-height: 40px; /* centers the text vertically */
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   font-size: 1.5em;
-  color: #fff;
+  color: #333;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;  /* ensures a perfect circle */
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
   user-select: none;
   z-index: 1010;
   display: none;
@@ -203,7 +292,7 @@ header h1 {
 /* Lightbox Indicator */
 .indicator {
   position: absolute;
-  bottom: 16px;  /* Adjust how far up from the image bottom */
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -213,7 +302,7 @@ header h1 {
 .indicator .dot {
   width: 10px;
   height: 10px;
-  background: rgba(255,255,255,0.5);
+  background: rgba(51,51,51,0.5);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -234,48 +323,6 @@ header h1 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Styles for Lightbox and Text */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2em;
-  }
-  .description h2 {
-    font-size: 1.5em;
-  }
-  .camera-icon img {
-    width: 15px;
-    height: 15px;
-  }
-  .lightbox-content {
-    padding: 15px;
-  }
-}
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 1.8em;
-  }
-  .description h2 {
-    font-size: 1.3em;
-  }
-  .camera-icon img {
-    width: 12px;
-    height: 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .ascii-header {
-    font-size: 18px;
-    padding: 1px 10px;
-  }
-}
-@media (max-width: 500px) {
-  .ascii-header {
-    font-size: 12px;
-    padding: 1px 10px;
-  }
-}
-
 /* ------------------- */
 /* Cards Container */
 .cards-container {
@@ -285,15 +332,15 @@ header h1 {
   margin-top: 20px;
 }
 
-/* Card Styles */
+/* Card Styles (Light Theme) */
 .card {
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
-  background-color: #333;
-  border: 3px solid rgba(255, 255, 255, 0.75);
+  background-color: #fff;
+  border: 3px solid #ccc;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
@@ -303,8 +350,11 @@ header h1 {
 }
 .card-header {
   padding: 20px;
-  background-color: #444;
-  border-bottom: 0px solid rgba(255, 255, 255, 0.75);
+  background-color: #eee;
+  border-bottom: 0px solid #ccc;
+}
+.card-header h3 {
+  color: #1e1e1e;
 }
 
 /* Card Content (collapsed state) */
@@ -324,6 +374,7 @@ header h1 {
 /* Card Content Text and Image */
 .card-content p {
   margin-bottom: 10px;
+  color: #333;
 }
 .card-content img {
   max-width: 100%;
@@ -331,4 +382,29 @@ header h1 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: block;
   margin-bottom: 10px;
+}
+
+/* ------------------- */
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* No header h1/h2 styles needed since the ascii header is commented out */
+  .description h2 {
+    font-size: 1.5em;
+  }
+  .camera-icon img {
+    width: 15px;
+    height: 15px;
+  }
+  .lightbox-content {
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .description h2 {
+    font-size: 1.3em;
+  }
+  .camera-icon img {
+    width: 12px;
+    height: 12px;
+  }
 }

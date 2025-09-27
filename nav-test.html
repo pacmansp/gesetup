@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nav Test</title>
+<style>
+  /* RESET */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ===== NAVIGATION ===== */
+  .sticky-nav {
+    background-color: #f8f8f8;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+  }
+
+  .main-menu {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .main-menu > li {
+    position: relative;
+  }
+
+  .main-menu > li > a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .main-menu > li > a:hover {
+    background-color: #e0e0e0;
+  }
+
+  /* ===== DROPDOWN ===== */
+  .dropdown {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: none; /* 🔑 hidden by default */
+    min-width: 150px;
+  }
+
+  .dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .dropdown li a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .dropdown.show {
+    display: block; /* shown when JS toggles .show */
+  }
+</style>
+</head>
+<body>
+
+<nav class="sticky-nav">
+  <ul class="main-menu">
+    <li>
+      <a href="#" id="teams-link">Teams ▾</a>
+      <ul class="dropdown" id="dropdown-menu">
+        <li><a href="#">Connections</a></li>
+        <li><a href="#">e101</a></li>
+        <li><a href="#">Greeters</a></li>
+        <li><a href="#">Ushers</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Map</a></li>
+  </ul>
+</nav>
+
+<script>
+  const teamsLink = document.getElementById('teams-link');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+
+  teamsLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    dropdownMenu.classList.toggle('show');
+  });
+
+  window.addEventListener('click', function(e) {
+    if (!teamsLink.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownMenu.classList.remove('show');
+    }
+  });
+</script>
+
+<p style="padding:2rem;">Scroll me… filler text so you can see the sticky nav working.</p>
+
+</body>
+</html>

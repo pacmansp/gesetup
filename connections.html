@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connections Team</title>
+  <link rel="stylesheet" href="styles.css?v=3.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <header class="sticky-nav">
+    <nav class="container">
+      <div class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <div class="dropdown">
+          <button class="nav-item dropdown-btn js-dropdown-btn">Teams <i class="fa-solid fa-caret-down"></i></button>
+          <div class="dropdown-content">
+            <a href="connections.html">Connections</a>
+            <a href="e101.html">e101</a>
+            <a href="greeters.html">Greeters</a>
+            <a href="ushers.html">Ushers</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="description" style="padding-top: 50px;">
+      <h2>Connections Team Page</h2>
+      <p>
+        <i class="fa-solid fa-gear fa-spin" style="margin-right: 10px;"></i>
+        Team page is currently a work in progress. Come back later!
+        <i class="fa-solid fa-gear fa-spin" style="margin-left: 10px;"></i>
+      </p>
+    </section>
+
+    </div> <script>
+    const MOBILE_BREAKPOINT = 768;
+    const dropdownButton = document.querySelector('.js-dropdown-btn');
+    const dropdownContainer = dropdownButton.closest('.dropdown');
+
+    function enableMobileDropdown() {
+        dropdownButton.addEventListener('click', toggleDropdown);
+        document.addEventListener('click', closeDropdownOnOutsideClick);
+    }
+
+    function disableMobileDropdown() {
+        dropdownButton.removeEventListener('click', toggleDropdown);
+        document.removeEventListener('click', closeDropdownOnOutsideClick);
+        dropdownContainer.classList.remove('js-active');
+    }
+
+    function toggleDropdown(e) {
+        e.stopPropagation(); 
+        dropdownContainer.classList.toggle('js-active');
+    }
+
+    function closeDropdownOnOutsideClick(e) {
+        if (dropdownContainer.classList.contains('js-active') && !dropdownContainer.contains(e.target)) {
+            dropdownContainer.classList.remove('js-active');
+        }
+    }
+
+    function checkScreenSize() {
+        if (window.innerWidth < MOBILE_BREAKPOINT) {
+            if (!dropdownButton.getAttribute('data-mobile-active')) {
+                enableMobileDropdown();
+                dropdownButton.setAttribute('data-mobile-active', 'true');
+            }
+        } else {
+            if (dropdownButton.getAttribute('data-mobile-active') === 'true') {
+                disableMobileDropdown();
+                dropdownButton.removeAttribute('data-mobile-active');
+            }
+        }
+    }
+    
+    // Ensures the 'Home' link works correctly on team pages
+    document.querySelector('.nav-links a.nav-item').setAttribute('href', 'index.html');
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+  </script>
+</body>
+</html>
